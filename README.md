@@ -8,8 +8,8 @@
 * This tool will not parse nodes, or add to an existing CherryTree.
 * This tool will only work on linux (could be ported with relative ease).
 * Be sure to make your outfile a .ctd so cherrytree knows to open it as an unprotected xml.
-![alt text](https://github.com/CoolHandSquid/PdfToCherryTree/blob/master/Images/PdfToCherryTree_Run1)
-![alt text](https://github.com/CoolHandSquid/PdfToCherryTree/blob/master/Images/PdfToCherryTree_Run1)
+![alt text](https://github.com/CoolHandSquid/PdfToCherryTree/Images/PdfToCherryTree_Run1)
+![alt text](https://github.com/CoolHandSquid/PdfToCherryTree/Images/PdfToCherryTree_Run1)
 ## Build
 * python3 -m pip install wand
 ## Contact
