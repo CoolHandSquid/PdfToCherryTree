@@ -8,6 +8,7 @@
 * Example:    python3 /root/Desktop/Example.pdf /root/Desktop/TempCherryTree.ctd
 * Note:       The goal of this tool is to turn the PDF into a node in a temporary CherryTree that you can then merge with your functional CherryTree.
 * This tool will not parse nodes, or add to an existing CherryTree.
+* You can put a folder in place of inputPdf and the tool will convert all Pdf's (and only Pdf's) into their own node in the outputCtd CherryTree.
 * This tool will only work on linux (could be ported with relative ease).
 * Be sure to make your outfile a .ctd so cherrytree knows to open it as an unprotected xml.
 ![alt text](https://github.com/CoolHandSquid/PdfToCherryTree/blob/main/Images/PdfToCherryTree_Run1.png)
