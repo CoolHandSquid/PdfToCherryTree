@@ -14,4 +14,4 @@
 ![alt text](https://github.com/CoolHandSquid/PdfToCherryTree/blob/main/Images/PdfToCherryTree_Run1.png)
 ![alt text](https://github.com/CoolHandSquid/PdfToCherryTree/blob/main/Images/PdfToCherryTree_Run2.png)
 ## Contact
-* Please contact me at YCSquilly@gmail.com for suggestions and ideas! (I'd be willing to make this work for windows if asked nicely...)
+* Please contact me at CoolHandSquid32@gmail.com for suggestions and ideas! (I'd be willing to make this work for windows if asked nicely...)
