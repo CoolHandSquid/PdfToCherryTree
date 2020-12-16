@@ -5,7 +5,7 @@
 * python3 -m pip install wand
 ## Useage
 * Synatx:     python3 PdfToCherry.py inputPdf outputCtd
-* Example:    python3 /root/Desktop/Example.pdf /root/Desktop/TempCherryTree.ctd
+* Example:    python3 /root/Desktop/PdfDirorPdf/ /root/Desktop/TempCherryTree.ctd
 * Note:       The goal of this tool is to turn the PDF into a node in a temporary CherryTree that you can then merge with your functional CherryTree.
 * This tool will not parse nodes, or add to an existing CherryTree.
 * You can put a folder in place of inputPdf and the tool will convert all Pdf's (and only Pdf's) into their own node in the outputCtd CherryTree.
