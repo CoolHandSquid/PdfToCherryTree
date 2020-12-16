@@ -12,7 +12,7 @@ from wand.image import Image
 
 if len(sys.argv) != 3:
     print("""Synatx:     python3 PdfToCherry.py inputPdf outputCtd
-Example:    python3 /root/Desktop/Example.pdf /root/Desktop/TempCherryTree.ctd
+Example:    python3 /root/Desktop/PdfDirOrPdf/ /root/Desktop/TempCherryTree.ctd
 Note:       The goal of this tool is to turn the PDF into a node in a temporary CherryTree that you can then merge with your functional CherryTree.
 You can put a folder in place of inputPdf and the tool will convert all Pdf's (and only Pdf's) into their own node in the outputCtd CherryTree.
 This tool will not parse nodes, or add to an existing CherryTree.
@@ -22,14 +22,14 @@ Be sure to make your outfile a .ctd so cherrytree knows to open it as an unprote
 
 indata  = sys.argv[1]
 outfile = sys.argv[2]
-uid     = 0
+uid     = 1
 
 if os.path.isfile(outfile):
     print("File exists. Please do not point to an outfile a file that exists")
     exit()
 
 #initialize .ctd file by writing to the variable writetofile
-ctdHead     = '<?xml version="1.0" encoding="UTF-8"?>\n<cherrytree>\n  <bookmarks list=""/>\n'
+ctdHead     = '<?xml version="1.0" encoding="UTF-8"?>\n<cherrytree>\n  <bookmarks list=""/>\n  <node name="Top" unique_id="0">\n'
 writetofile = ctdHead
 
 
@@ -95,7 +95,7 @@ elif os.path.isdir(indata):
     if empty == True:
         print("Warning: No PDF's found in {}".foramt(indata))
 
-ctdTail     = '  </cherrytree>'
+ctdTail     = '  </node>\n  </cherrytree>'
 writetofile = writetofile + ctdTail
 
 f = open(outfile, "w")
