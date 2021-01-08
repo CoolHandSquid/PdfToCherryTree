@@ -22,6 +22,7 @@ Be sure to make your outfile a .ctd so cherrytree knows to open it as an unprote
 
 indata  = sys.argv[1]
 outfile = sys.argv[2]
+node_Name   = ntpath.basename(outfile)[:-4]
 uid     = 1
 
 if os.path.isfile(outfile):
@@ -29,9 +30,8 @@ if os.path.isfile(outfile):
     exit()
 
 #initialize .ctd file by writing to the variable writetofile
-ctdHead     = '<?xml version="1.0" encoding="UTF-8"?>\n<cherrytree>\n  <bookmarks list=""/>\n  <node name="Top" unique_id="0">\n'
+ctdHead     = '<?xml version="1.0" encoding="UTF-8"?>\n<cherrytree>\n  <bookmarks list=""/>\n  <node name="{}" unique_id="0">\n'.format(node_Name)
 writetofile = ctdHead
-
 
 def createnode(file):
     #createnode() Initializes a node, converts each page of a pdf into a png file, base64 encodes it, and then adds that base64 encoded png file to writetofile variable.
