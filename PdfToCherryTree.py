@@ -4,6 +4,7 @@ import base64
 import magic
 import ntpath
 import sys
+import time
 from wand.image import Image
 
 ###Build
@@ -23,14 +24,14 @@ Be sure to make your outfile a .ctd so cherrytree knows to open it as an unprote
 indata  = sys.argv[1]
 outfile = sys.argv[2]
 node_Name   = ntpath.basename(outfile)[:-4]
-uid     = 1
+uid     = 2
 
 if os.path.isfile(outfile):
     print("File exists. Please do not point to an outfile a file that exists")
     exit()
 
 #initialize .ctd file by writing to the variable writetofile
-ctdHead     = '<?xml version="1.0" encoding="UTF-8"?>\n<cherrytree>\n  <bookmarks list=""/>\n  <node name="{}" unique_id="0">\n'.format(node_Name)
+ctdHead     = '<?xml version="1.0" encoding="UTF-8"?>\n<cherrytree>\n  <bookmarks list=""/>\n  <node name="{}" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" foreground="" ts_creation="{}" ts_lastsave="{}">\n'.format(node_Name, time.time(), time.time())
 writetofile = ctdHead
 
 def createnode(file):
@@ -38,7 +39,7 @@ def createnode(file):
     #The writetofile variable is what is then written to the outfile and is opened by cherrytree.
     global writetofile                                                                                      #writetofile is what will be written to the .ctd file
     global uid                                                                                              #uid is used to iterate through uniqueid numbers
-    writetofile = writetofile + '  <node name="{}" unique_id="{}">\n'.format(filename, uid)                 #begin a new node
+    writetofile = writetofile + '  <node name="{}" unique_id="{}" prog_lang="custom-colors" tags="" readonly="0" custom_icon_id="0" foreground="" ts_creation="{}" ts_lastsave="{}">\n'.format(filename, uid, time.time(), time.time())                 #begin a new node
     uid += 1                                                                                                #next uniqueid will be +1
     encoded_strings = []                                                                                    #encoded strings will be a list of base64 encoded png files. (each item will be a page of the pdf)
     all_pages   = Image(filename=file)                                                                      #all_pages is the pdf converted to Image format (wand)
