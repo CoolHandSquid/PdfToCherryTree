@@ -6,6 +6,7 @@ import ntpath
 import sys
 import time
 from wand.image import Image
+from PyPDF2 import PdfFileReader
 
 ###Build
 #python3 -m pip install wand
@@ -63,6 +64,10 @@ def createnode(file):
         offset += 3                                                                                         #increase offset by 3
     writetofile = writetofile + '  </node>\n'                                                               #close node
 
+def status(file):
+    with open(file, "rb") as pdf_file:
+        pdf_reader = PdfFileReader(pdf_file)
+        print("Converting {} page/s of {} into CherryTree.\n".format(pdf_reader.numPages, filename))
 
 ###<MAIN>###
 #Identify if it is a file or a directory, Verify if each file is a PDF, if it is a pdf, send it to createnode().
@@ -75,6 +80,7 @@ if os.path.isfile(indata):
     filename    = ntpath.basename(indata)
     pnf         = indata
     if "PDF" in magic.from_file(pnf):
+        status(pnf)
         createnode(pnf)
     else:
         print("Warning: {} is not a PDF".format(pnf))
@@ -86,6 +92,7 @@ elif os.path.isdir(indata):
         if filename.endswith(".pdf"):
             file = indata + "/" + filename
             if "PDF" in magic.from_file(file):
+                status(file)
                 createnode(file)
                 empty = False
             else:
@@ -95,6 +102,9 @@ elif os.path.isdir(indata):
             continue
     if empty == True:
         print("Warning: No PDF's found in {}".foramt(indata))
+else:
+    print("Hmmm, I'm having trouble finding this file/dir. Are you sure the path is correct?")
+    quit()
 
 ctdTail     = '  </node>\n  </cherrytree>'
 writetofile = writetofile + ctdTail
