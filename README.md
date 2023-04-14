@@ -3,6 +3,7 @@
 * PdfToCherryTree is a product of 19% security solutions
 ## Build
 * python3 -m pip install wand
+* sudo sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xml
 ## Useage
 * Synatx:     python3 PdfToCherry.py inputPdf outputCtd
 * Example:    python3 /root/Desktop/PdfDirOrPdf/ /root/Desktop/TempCherryTree.ctd
